@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Support HIVE — Buy Me a Coffee</title>
+  <meta name="description" content="Support the development of HIVE — a free, open-source macOS app for managing OpenCode sessions." />
+  <meta name="theme-color" content="#05060b" />
+  <meta name="color-scheme" content="dark" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <script type="module" src="/src/js/support.js"></script>
+</head>
+<body>
+  <canvas id="starfield" aria-hidden="true"></canvas>
+  <div class="bg-aurora" aria-hidden="true"></div>
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <main>
+    <section class="support-hero container">
+      <span class="kicker reveal">Support HIVE</span>
+      <h1 class="reveal">Keep HIVE <span class="grad-text">free &amp; growing.</span></h1>
+      <p class="reveal">
+        HIVE is free and open source. If it saves you time or makes your work calmer,
+        a coffee goes a long way toward new features and faster fixes.
+      </p>
+    </section>
+
+    <section class="container">
+      <div class="support-grid">
+
+        <!-- Ko-fi main card -->
+        <div class="glass-2 support-kofi-card reveal" id="kofi-card">
+          <div id="kofi-widget-area">
+            <!-- Populated by support.js once Ko-fi username is configured -->
+            <div id="kofi-configured" style="display:none">
+              <h3 style="font-size:1.15rem;margin-bottom:0.5rem">Support on Ko-fi</h3>
+              <p style="color:var(--muted);font-size:0.92rem;margin-bottom:1.5rem">
+                Ko-fi lets you send any amount — no account needed.
+              </p>
+              <iframe
+                id="kofi-frame"
+                class="kofi-frame"
+                height="712"
+                title="Support HIVE on Ko-fi"
+                frameborder="0"
+                scrolling="no"
+                loading="lazy"
+              ></iframe>
+            </div>
+            <div id="kofi-placeholder" class="kofi-placeholder">
+              <p style="margin-bottom:0.7rem">
+                Ko-fi widget loading… if you see this,
+                the Ko-fi username hasn't been configured yet.
+              </p>
+              <p>
+                Owner: open <code>src/js/kofi.config.js</code> and replace
+                <code>YOUR_KOFI_USERNAME</code> with your Ko-fi username.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Alt: GitHub Star -->
+        <div class="support-alt">
+          <div class="card support-alt-card reveal">
+            <h3>
+              <svg viewBox="0 0 24 24" width="18" height="18" style="display:inline;vertical-align:middle;margin-right:0.4rem" fill="currentColor" aria-hidden="true"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 18.896l-7.416 4.517 1.48-8.279L.008 9.306l8.332-1.151z"/></svg>
+              Star on GitHub
+            </h3>
+            <p>Stars help HIVE get discovered by other OpenCode users who might benefit from it. Free and takes two seconds.</p>
+            <a class="btn btn-ghost" href="https://github.com/LunaHook/hive" target="_blank" rel="noopener">
+              <svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+              Star HIVE
+            </a>
+          </div>
+
+          <div class="card support-alt-card reveal reveal-delay-1">
+            <h3>
+              <svg viewBox="0 0 24 24" width="18" height="18" style="display:inline;vertical-align:middle;margin-right:0.4rem" fill="currentColor" aria-hidden="true"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/></svg>
+              Share HIVE
+            </h3>
+            <p>Tell a fellow OpenCode user about HIVE. Word of mouth is the best way for a small open-source project to grow its community.</p>
+            <a class="btn btn-ghost" href="https://twitter.com/intent/tweet?text=HIVE+is+a+great+command+center+for+OpenCode+sessions+%E2%80%94+live+CPU+%26+RAM+insights%2C+deep+theming%2C+and+solid+reliability.+Free+%26+open+source.+https%3A%2F%2Fgithub.com%2FLunaHook%2Fhive" target="_blank" rel="noopener">
+              Share on X / Twitter
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Transparency note -->
+      <div style="text-align:center;padding:2rem 0 5rem;max-width:600px;margin:0 auto">
+        <p style="color:var(--faint);font-size:0.84rem;line-height:1.7">
+          HIVE will always be free and open source. Donations keep the lights on and
+          motivate continued development. There's no paid tier, no "pro" features gated
+          behind a paywall, and no plans to change that.
+        </p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Account — HIVE</title>
+  <meta name="description" content="Sign in or create a HIVE account." />
+  <meta name="theme-color" content="#05060b" />
+  <meta name="color-scheme" content="dark" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <script type="module" src="/src/js/account.js"></script>
+</head>
+<body>
+  <canvas id="starfield" aria-hidden="true"></canvas>
+  <div class="bg-aurora" aria-hidden="true"></div>
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <main>
+    <section class="account-hero container">
+      <span class="kicker reveal">Account</span>
+      <h1 class="reveal">Your <span class="grad-text">HIVE account</span></h1>
+      <p class="reveal">Sign in to sync preferences and access future account features.</p>
+    </section>
+
+    <div class="auth-wrap">
+      <div class="auth-card glass reveal" id="auth-card">
+
+        <!-- Auth not configured notice (shown when Supabase is unconfigured) -->
+        <div class="auth-state" id="state-unconfigured">
+          <div class="auth-state-icon" aria-hidden="true">⚙️</div>
+          <h3>Supabase not configured</h3>
+          <p>
+            The Supabase project URL and anon key haven't been set up yet.
+            See the <strong>README</strong> for instructions — it takes about 5 minutes.
+          </p>
+          <a class="btn btn-ghost" href="https://github.com/LunaHook/hive-landing#supabase-setup" target="_blank" rel="noopener" style="margin-top:0.5rem">
+            Setup guide ↗
+          </a>
+        </div>
+
+        <!-- Login / Signup (shown when logged out) -->
+        <div id="auth-forms" style="display:none">
+          <!-- Tabs -->
+          <div class="auth-tabs" role="tablist">
+            <button class="auth-tab active" role="tab" aria-selected="true" data-tab="login" id="tab-login">Sign in</button>
+            <button class="auth-tab" role="tab" aria-selected="false" data-tab="signup" id="tab-signup">Create account</button>
+          </div>
+
+          <!-- Error banner -->
+          <div class="auth-error" id="auth-error" role="alert" aria-live="polite"></div>
+
+          <!-- Login form -->
+          <form class="auth-form" id="form-login" aria-labelledby="tab-login">
+            <div class="auth-field">
+              <label class="auth-label" for="login-email">Email</label>
+              <input class="auth-input" id="login-email" type="email" name="email" autocomplete="email" placeholder="you@example.com" required />
+            </div>
+            <div class="auth-field">
+              <label class="auth-label" for="login-password">Password</label>
+              <input class="auth-input" id="login-password" type="password" name="password" autocomplete="current-password" placeholder="••••••••" required />
+            </div>
+            <button class="btn btn-primary auth-submit" type="submit" id="btn-login">Sign in</button>
+          </form>
+
+          <!-- Signup form -->
+          <form class="auth-form" id="form-signup" style="display:none" aria-labelledby="tab-signup">
+            <div class="auth-field">
+              <label class="auth-label" for="signup-email">Email</label>
+              <input class="auth-input" id="signup-email" type="email" name="email" autocomplete="email" placeholder="you@example.com" required />
+            </div>
+            <div class="auth-field">
+              <label class="auth-label" for="signup-password">Password</label>
+              <input class="auth-input" id="signup-password" type="password" name="password" autocomplete="new-password" placeholder="8+ characters" minlength="8" required />
+            </div>
+            <button class="btn btn-primary auth-submit" type="submit" id="btn-signup">Create account</button>
+          </form>
+        </div>
+
+        <!-- Email verification pending -->
+        <div class="auth-state" id="state-verify">
+          <div class="auth-state-icon" aria-hidden="true">📬</div>
+          <h3>Check your inbox</h3>
+          <p>
+            We sent a verification link to <strong id="verify-email-display"></strong>.
+            Click the link in the email to confirm your account, then come back here to sign in.
+          </p>
+          <button class="btn btn-ghost" id="btn-back-to-login" style="margin-top:0.5rem">Back to sign in</button>
+        </div>
+
+        <!-- Logged in -->
+        <div class="auth-loggedin" id="state-loggedin">
+          <div class="auth-user-row">
+            <div class="auth-avatar" id="auth-avatar" aria-hidden="true">?</div>
+            <div>
+              <div class="auth-email" id="auth-email-display">—</div>
+              <div class="auth-since" id="auth-since">Member since —</div>
+            </div>
+          </div>
+          <hr style="border:none;border-top:1px solid var(--bdr);margin:0.3rem 0" />
+          <p style="font-size:0.88rem;color:var(--muted)">
+            You're signed in to your HIVE account. More account features will be available in future releases.
+          </p>
+          <button class="auth-signout" id="btn-signout">Sign out</button>
+        </div>
+
+      </div><!-- /auth-card -->
+
+      <p style="text-align:center;font-size:0.8rem;color:var(--faint);margin-top:1.5rem">
+        Account features are powered by
+        <a href="https://supabase.com" target="_blank" rel="noopener" style="color:var(--c2)">Supabase</a>.
+        No personal data is sold or shared.
+      </p>
+    </div>
+  </main>
+</body>
+</html>
