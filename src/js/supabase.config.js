@@ -9,5 +9,5 @@
 // 4. Optionally customise the confirmation email template.
 // ─────────────────────────────────────────────────────────────────────────────
 
-export const SUPABASE_URL      = 'https://YOUR_PROJECT_ID.supabase.co'
-export const SUPABASE_ANON_KEY = 'YOUR_ANON_KEY'
+export const SUPABASE_URL      = 'https://viilaatyebzuwabjdhhx.supabase.co'
+export const SUPABASE_ANON_KEY = 'sb_publishable_zmbmfAEkK5xgTdrENgaT1A_0gW9FOTS'
