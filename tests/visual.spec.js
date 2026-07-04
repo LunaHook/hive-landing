@@ -84,15 +84,15 @@ test('Downloads page — Apple Silicon card is clickable', async ({ page }) => {
   expect(href).toContain('arm64.dmg')
 })
 
-test('Presets page — copy button copies config ID', async ({ page }) => {
-  // Grant clipboard permission
-  await page.context().grantPermissions(['clipboard-read', 'clipboard-write'])
+test('Presets page — theme cards have download links pointing to .hivetheme.png files', async ({ page }) => {
   await page.goto('/presets.html')
   await page.waitForLoadState('networkidle')
-  const copyBtn = page.locator('.copy-btn').first()
-  await expect(copyBtn).toBeVisible()
-  await copyBtn.click()
-  await expect(copyBtn).toHaveClass(/copied/)
+  const downloadBtn = page.locator('.download-btn').first()
+  await expect(downloadBtn).toBeVisible()
+  const href = await downloadBtn.getAttribute('href')
+  expect(href).toContain('.hivetheme.png')
+  const dl = await downloadBtn.getAttribute('download')
+  expect(dl).toContain('.hivetheme.png')
 })
 
 test('Account page — shows unconfigured state when Supabase not set', async ({ page }) => {

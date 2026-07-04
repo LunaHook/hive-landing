@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Presets &amp; Configs — HIVE</title>
-  <meta name="description" content="Starter theme presets for HIVE — import directly via config ID, or browse community-contributed themes." />
+  <meta name="description" content="22 built-in HIVE themes — download any as a .hivetheme.png file and import it in seconds." />
   <meta name="theme-color" content="#05060b" />
   <meta name="color-scheme" content="dark" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -23,8 +23,9 @@
       <span class="kicker reveal">Presets &amp; Configs</span>
       <h1 class="reveal">Themes that feel like <span class="grad-text">yours.</span></h1>
       <p class="reveal">
-        Import any of these starter presets into HIVE in seconds, or use them as a
-        jumping-off point for your own custom themes.
+        22 built-in themes — dark and light — each available as a
+        real <code style="font-size:0.9em;color:var(--c2)">.hivetheme.png</code> file you can
+        download and import into HIVE in seconds.
       </p>
     </section>
 
@@ -35,154 +36,34 @@
           <svg viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
         </div>
         <div class="hti-body">
-          <strong>How to import a preset into HIVE</strong>
-          Copy the config ID below, then in HIVE open
+          <strong>How to import a theme into HIVE</strong>
+          Click <em>Download</em> on any theme below — the file saves as a
+          <code style="font-size:0.82em;color:var(--c2)">.hivetheme.png</code>.
+          Then in HIVE open
           <div class="hti-steps">
             <span class="hti-step">Settings</span>
             <span class="hti-arrow">→</span>
-            <span class="hti-step">Themes</span>
+            <span class="hti-step">Theme</span>
             <span class="hti-arrow">→</span>
-            <span class="hti-step">Import Config</span>
+            <span class="hti-step">Import PNG</span>
           </div>
-          and paste the ID. The theme will load instantly.
+          and select the downloaded file. The theme loads instantly.
         </div>
       </div>
     </section>
 
-    <!-- Starter presets -->
+    <!-- Built-in themes (rendered by presets.js) -->
     <section class="container" style="margin-bottom:1.5rem">
       <div class="section-head reveal" style="text-align:left;max-width:100%;margin-bottom:1.5rem">
-        <span class="kicker">Starter presets</span>
+        <span class="kicker">Built-in themes</span>
         <p style="color:var(--muted);font-size:0.95rem;margin-top:0.3rem">
-          Curated by the HIVE team. Copy the config ID and paste it in HIVE's theme importer.
+          Curated by the HIVE team. Download the <code style="font-size:0.85em;color:var(--c2)">.hivetheme.png</code> and import it directly.
         </p>
       </div>
     </section>
 
     <section class="container">
-      <div class="preset-grid" id="preset-grid">
-
-        <!-- Deep Space (default) -->
-        <article class="card preset-card reveal">
-          <div class="preset-preview" style="background:linear-gradient(135deg,#05060b 0%,#0b0e19 100%)">
-            <div class="preset-preview-bar">
-              <div class="preset-preview-dots">
-                <div class="preset-preview-dot" style="background:#ff5f57"></div>
-                <div class="preset-preview-dot" style="background:#febc2e"></div>
-                <div class="preset-preview-dot" style="background:#28c840"></div>
-              </div>
-            </div>
-            <div class="preset-swatch-row">
-              <div class="preset-swatch" style="background:#22e0ff"></div>
-              <div class="preset-swatch" style="background:#b060ff"></div>
-              <div class="preset-swatch" style="background:#3ee7ff"></div>
-              <div class="preset-swatch" style="background:#c07bff"></div>
-            </div>
-          </div>
-          <div class="preset-body">
-            <div class="preset-name">Deep Space <span style="font-size:0.72rem;color:var(--c2);background:rgba(34,224,255,0.1);border:1px solid rgba(34,224,255,0.25);border-radius:5px;padding:0.12rem 0.45rem;font-family:var(--ff-display);font-weight:600;letter-spacing:0.06em">Default</span></div>
-            <p class="preset-desc">The out-of-the-box HIVE experience. Cyan and violet accents on a deep cosmic background — high contrast, easy on the eyes during long sessions.</p>
-            <div class="preset-id-row">
-              <code class="preset-id">hive_deepspace_v1</code>
-              <button class="copy-btn" data-id="hive_deepspace_v1">
-                <svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true"><path fill="currentColor" d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
-                Copy
-              </button>
-            </div>
-          </div>
-        </article>
-
-        <!-- Solar Flare -->
-        <article class="card preset-card reveal reveal-delay-1">
-          <div class="preset-preview" style="background:linear-gradient(135deg,#0d0800 0%,#1a0f00 100%)">
-            <div class="preset-preview-bar">
-              <div class="preset-preview-dots">
-                <div class="preset-preview-dot" style="background:#ff5f57"></div>
-                <div class="preset-preview-dot" style="background:#febc2e"></div>
-                <div class="preset-preview-dot" style="background:#28c840"></div>
-              </div>
-            </div>
-            <div class="preset-swatch-row">
-              <div class="preset-swatch" style="background:#f59e0b"></div>
-              <div class="preset-swatch" style="background:#ef4444"></div>
-              <div class="preset-swatch" style="background:#fbbf24"></div>
-              <div class="preset-swatch" style="background:#fb923c"></div>
-            </div>
-          </div>
-          <div class="preset-body">
-            <div class="preset-name">Solar Flare</div>
-            <p class="preset-desc">Amber and crimson accents on a near-black warm background. High energy without being harsh — great for focused late-night work.</p>
-            <div class="preset-id-row">
-              <code class="preset-id">hive_solar_v1</code>
-              <button class="copy-btn" data-id="hive_solar_v1">
-                <svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true"><path fill="currentColor" d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
-                Copy
-              </button>
-            </div>
-          </div>
-        </article>
-
-        <!-- Neon Garden -->
-        <article class="card preset-card reveal reveal-delay-2">
-          <div class="preset-preview" style="background:linear-gradient(135deg,#020d08 0%,#051410 100%)">
-            <div class="preset-preview-bar">
-              <div class="preset-preview-dots">
-                <div class="preset-preview-dot" style="background:#ff5f57"></div>
-                <div class="preset-preview-dot" style="background:#febc2e"></div>
-                <div class="preset-preview-dot" style="background:#28c840"></div>
-              </div>
-            </div>
-            <div class="preset-swatch-row">
-              <div class="preset-swatch" style="background:#5eead4"></div>
-              <div class="preset-swatch" style="background:#22c55e"></div>
-              <div class="preset-swatch" style="background:#a3e635"></div>
-              <div class="preset-swatch" style="background:#34d399"></div>
-            </div>
-          </div>
-          <div class="preset-body">
-            <div class="preset-name">Neon Garden</div>
-            <p class="preset-desc">Teal, green, and lime accents on a deep forest background. Softer than the default but equally crisp — feels like working inside a bioluminescent cave.</p>
-            <div class="preset-id-row">
-              <code class="preset-id">hive_neongarden_v1</code>
-              <button class="copy-btn" data-id="hive_neongarden_v1">
-                <svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true"><path fill="currentColor" d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
-                Copy
-              </button>
-            </div>
-          </div>
-        </article>
-
-        <!-- Midnight Rose -->
-        <article class="card preset-card reveal reveal-delay-3">
-          <div class="preset-preview" style="background:linear-gradient(135deg,#0d0508 0%,#150a11 100%)">
-            <div class="preset-preview-bar">
-              <div class="preset-preview-dots">
-                <div class="preset-preview-dot" style="background:#ff5f57"></div>
-                <div class="preset-preview-dot" style="background:#febc2e"></div>
-                <div class="preset-preview-dot" style="background:#28c840"></div>
-              </div>
-            </div>
-            <div class="preset-swatch-row">
-              <div class="preset-swatch" style="background:#f472b6"></div>
-              <div class="preset-swatch" style="background:#e879f9"></div>
-              <div class="preset-swatch" style="background:#fb7185"></div>
-              <div class="preset-swatch" style="background:#c084fc"></div>
-            </div>
-          </div>
-          <div class="preset-body">
-            <div class="preset-name">Midnight Rose</div>
-            <p class="preset-desc">Pink, magenta, and rose accents on a deep plum background. Elegant and distinctive — built for developers who want something unmistakably their own.</p>
-            <div class="preset-id-row">
-              <code class="preset-id">hive_midnightrose_v1</code>
-              <button class="copy-btn" data-id="hive_midnightrose_v1">
-                <svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true"><path fill="currentColor" d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
-                Copy
-              </button>
-            </div>
-          </div>
-        </article>
-
-      </div>
+      <div class="preset-grid" id="preset-grid"></div>
     </section>
 
     <!-- Community section -->
@@ -197,7 +78,7 @@
         <h3>Community presets — coming soon</h3>
         <p>
           Once community submission is ready, this gallery will fill up with themes
-          from HIVE users. For now, the starter presets above are the best place to start.
+          from HIVE users. For now, the built-in themes above are the best place to start.
           Watch the <a href="https://github.com/LunaHook/hive" target="_blank" rel="noopener" style="color:var(--c2)">GitHub repository</a>
           for updates.
         </p>
