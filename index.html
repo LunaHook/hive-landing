@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HIVE — Command center for your OpenCode sessions</title>
+  <meta name="description" content="HIVE is a macOS desktop app for managing OpenCode CLI coding sessions — with live CPU & RAM insights, deep theming, a dynamic dock icon, and rock-solid reliability." />
+  <meta name="theme-color" content="#05060b" />
+  <meta name="color-scheme" content="dark" />
+
+  <!-- Open Graph / social -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="HIVE — Command center for your OpenCode sessions" />
+  <meta property="og:description" content="Manage every OpenCode CLI coding session from one calm command center: live insights, deep theming, and reliability that lasts all day." />
+  <meta property="og:site_name" content="HIVE" />
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+  <!-- Fonts (progressive enhancement; the page is fully styled without them) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Deep-space backdrop -->
+  <canvas id="starfield" aria-hidden="true"></canvas>
+  <div class="bg-aurora" aria-hidden="true"></div>
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <!-- ============================= NAV ============================= -->
+  <header class="nav" id="nav">
+    <a class="brand" href="#top" aria-label="HIVE home">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 32 32" width="26" height="26">
+          <defs>
+            <linearGradient id="hexGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#22e0ff" />
+              <stop offset="1" stop-color="#b060ff" />
+            </linearGradient>
+          </defs>
+          <path d="M16 2.6 27.6 9.3v13.4L16 29.4 4.4 22.7V9.3z" fill="none" stroke="url(#hexGrad)" stroke-width="1.6"/>
+          <path d="M16 9.2 21.6 12.5v6.6L16 22.4l-5.6-3.3v-6.6z" fill="url(#hexGrad)" opacity="0.9"/>
+        </svg>
+      </span>
+      <span class="brand-name">HIVE</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#features">Features</a>
+      <a href="#insights">Insights</a>
+      <a href="#download">Download</a>
+      <a class="nav-ghost" href="https://github.com/LunaHook/hive" target="_blank" rel="noopener">GitHub ↗</a>
+    </nav>
+    <a class="btn btn-sm btn-primary nav-cta" href="#download">Download</a>
+  </header>
+
+  <main id="top">
+    <!-- ============================= HERO ============================= -->
+    <section class="hero">
+      <div class="hero-copy reveal">
+        <span class="eyebrow"><span class="dot"></span> Desktop app · macOS · for OpenCode</span>
+        <h1 class="hero-title">
+          Every OpenCode session,<br /><span class="grad-text">under one roof.</span>
+        </h1>
+        <p class="hero-sub">
+          HIVE is a command center for your OpenCode CLI coding sessions — spin them up,
+          switch between them, and keep a live pulse on CPU, memory, tokens, and cost.
+          Deep theming, a dynamic dock icon, and reliability that holds up all day.
+        </p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#download">
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12 3v10.6l3.3-3.3 1.4 1.4L12 17.4 6.3 11.7l1.4-1.4L11 13.6V3zM5 19h14v2H5z"/></svg>
+            Download for macOS
+          </a>
+          <a class="btn btn-ghost" href="https://github.com/LunaHook/hive" target="_blank" rel="noopener">View on GitHub</a>
+        </div>
+        <p class="hero-meta">Free &amp; open source · v1.0.0 · Apple Silicon &amp; Intel</p>
+      </div>
+
+      <!-- Abstract, decorative visual (not a screenshot) -->
+      <div class="hero-visual reveal" aria-hidden="true">
+        <div class="orb orb-cyan"></div>
+        <div class="orb orb-violet"></div>
+
+        <div class="viz-panel glass">
+          <div class="viz-head">
+            <span class="viz-tag cyan">CPU</span>
+            <span class="viz-tag violet">RAM</span>
+            <span class="viz-live"><span class="pulse"></span> live</span>
+          </div>
+
+          <svg class="viz-chart" viewBox="0 0 320 150" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="fillCyan" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#22e0ff" stop-opacity="0.35"/>
+                <stop offset="1" stop-color="#22e0ff" stop-opacity="0"/>
+              </linearGradient>
+              <linearGradient id="fillViolet" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#b060ff" stop-opacity="0.30"/>
+                <stop offset="1" stop-color="#b060ff" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <!-- gridlines -->
+            <g stroke="rgba(150,160,200,0.10)" stroke-width="1">
+              <line x1="0" y1="38" x2="320" y2="38"/>
+              <line x1="0" y1="75" x2="320" y2="75"/>
+              <line x1="0" y1="112" x2="320" y2="112"/>
+            </g>
+            <path class="area area-cyan" fill="url(#fillCyan)" d=""></path>
+            <path class="line line-cyan" fill="none" stroke="#3ee7ff" stroke-width="2" d=""></path>
+            <path class="area area-violet" fill="url(#fillViolet)" d=""></path>
+            <path class="line line-violet" fill="none" stroke="#c07bff" stroke-width="2" d=""></path>
+          </svg>
+
+          <div class="viz-stats">
+            <div class="stat"><span class="stat-num cyan" data-count="41" data-suffix="%">0%</span><span class="stat-label">Peak CPU</span></div>
+            <div class="stat"><span class="stat-num violet" data-count="1.8" data-suffix=" GB" data-float="1">0</span><span class="stat-label">Memory</span></div>
+            <div class="stat"><span class="stat-num" data-count="6">0</span><span class="stat-label">Sessions</span></div>
+          </div>
+        </div>
+
+        <div class="hex hex-1"></div>
+        <div class="hex hex-2"></div>
+        <div class="hex hex-3"></div>
+      </div>
+    </section>
+
+    <!-- Trust / capability strip -->
+    <section class="strip reveal" aria-label="At a glance">
+      <span>Live process insights</span><i></i>
+      <span>Multi-session control</span><i></i>
+      <span>Theme-synced dock icon</span><i></i>
+      <span>Broadcast &amp; quick-switch</span><i></i>
+      <span>Zero telemetry</span>
+    </section>
+
+    <!-- ============================= FEATURES ============================= -->
+    <section class="features" id="features">
+      <div class="section-head reveal">
+        <span class="kicker">What's inside</span>
+        <h2>Built to keep many sessions calm</h2>
+        <p>Everything you need to run a swarm of OpenCode sessions without losing the thread.</p>
+      </div>
+
+      <div class="feature-grid">
+        <article class="card feature reveal">
+          <div class="feature-ico ico-cyan">
+            <svg viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M4 5h7v6H4zM13 5h7v4h-7zM13 11h7v8h-7zM4 13h7v6H4z"/></svg>
+          </div>
+          <h3>Session management</h3>
+          <p>Create, open, archive, and restore OpenCode sessions in a click. Pin the important ones, tag and group the rest, and jump anywhere with the quick switcher or broadcast a prompt to them all at once.</p>
+        </article>
+
+        <article class="card feature reveal">
+          <div class="feature-ico ico-cyan">
+            <svg viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M3 3h2v18H3zm4 10h2v8H7zm4-6h2v14h-2zm4 4h2v10h-2zm4-8h2v18h-2z"/></svg>
+          </div>
+          <h3>Live CPU &amp; RAM insights</h3>
+          <p>Watch every session breathe. Real-time CPU and memory graphs, per-session process trees, plus cost, token, and activity trends — so you always know what's running hot.</p>
+          <svg class="mini-chart" viewBox="0 0 240 60" preserveAspectRatio="none" aria-hidden="true">
+            <path class="mini-line mini-cyan" fill="none" stroke="#3ee7ff" stroke-width="2" d="M0,45 C25,20 45,52 70,34 C95,16 115,44 140,30 C165,16 185,40 210,22 C225,12 235,26 240,20"/>
+            <path class="mini-line mini-violet" fill="none" stroke="#c07bff" stroke-width="2" d="M0,52 C25,44 45,48 70,40 C95,32 115,42 140,38 C165,34 185,40 210,34 C225,30 235,36 240,32"/>
+          </svg>
+        </article>
+
+        <article class="card feature reveal">
+          <div class="feature-ico ico-violet">
+            <svg viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M12 3a9 9 0 1 0 0 18c1 0 1.6-.9 1.2-1.8-.4-1 .3-2.2 1.4-2.2H17a4 4 0 0 0 4-4c0-4.5-4-8-9-8zm-5 9a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm3-4a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/></svg>
+          </div>
+          <h3>Theme customization</h3>
+          <p>Make it yours with rich, editable themes and a deep-space palette out of the box. An optional <strong>dynamic dock icon</strong> recolors itself to match your active theme — down to the accent glow.</p>
+          <div class="theme-swatches" aria-hidden="true">
+            <span style="--s:#22e0ff"></span>
+            <span style="--s:#b060ff"></span>
+            <span style="--s:#5eead4"></span>
+            <span style="--s:#f59e0b"></span>
+            <span style="--s:#f472b6"></span>
+            <span class="swatch-dock">⬢</span>
+          </div>
+        </article>
+
+        <article class="card feature reveal">
+          <div class="feature-ico ico-violet">
+            <svg viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M12 2 4 6v6c0 5 3.4 8.5 8 10 4.6-1.5 8-5 8-10V6zm-1.2 13.2L7 11.4l1.4-1.4 2.4 2.4 4.8-4.8L17 9z"/></svg>
+          </div>
+          <h3>Built for reliability</h3>
+          <p>A hardened session and terminal lifecycle, guarded polling that survives sleep/wake cycles, and no runaway processes. HIVE stays fast and steady on long, marathon days.</p>
+        </article>
+      </div>
+
+      <div class="pills reveal" aria-label="More features">
+        <span>Broadcast prompts</span>
+        <span>Quick switcher</span>
+        <span>Import folders</span>
+        <span>Global memory</span>
+        <span>Focus mode</span>
+        <span>Session notes</span>
+        <span>Auto-archive</span>
+        <span>Trash &amp; restore</span>
+      </div>
+    </section>
+
+    <!-- ============================= INSIGHTS SHOWCASE ============================= -->
+    <section class="insights" id="insights">
+      <div class="insights-inner glass reveal">
+        <div class="insights-copy">
+          <span class="kicker">Insights</span>
+          <h2>A live pulse on <span class="grad-text">everything</span></h2>
+          <p>
+            HIVE reads straight from your OpenCode data and each session's process tree to chart
+            CPU and memory in real time. Spot the session that's pinning a core, track spend and
+            token burn over the day, and see your activity heatmap at a glance.
+          </p>
+          <ul class="checklist">
+            <li>Per-session CPU &amp; memory, updated live</li>
+            <li>Cost &amp; token trends by day, week, and month</li>
+            <li>Activity heatmap across every session</li>
+          </ul>
+        </div>
+
+        <div class="insights-visual" aria-hidden="true">
+          <div class="gauge-row">
+            <div class="gauge">
+              <svg viewBox="0 0 120 120">
+                <circle cx="60" cy="60" r="50" fill="none" stroke="rgba(150,160,200,0.12)" stroke-width="10"/>
+                <circle class="gauge-arc arc-cyan" cx="60" cy="60" r="50" fill="none" stroke="#22e0ff" stroke-width="10" stroke-linecap="round" transform="rotate(-90 60 60)"/>
+              </svg>
+              <div class="gauge-c"><b class="cyan" data-count="41" data-suffix="%">0%</b><span>CPU</span></div>
+            </div>
+            <div class="gauge">
+              <svg viewBox="0 0 120 120">
+                <circle cx="60" cy="60" r="50" fill="none" stroke="rgba(150,160,200,0.12)" stroke-width="10"/>
+                <circle class="gauge-arc arc-violet" cx="60" cy="60" r="50" fill="none" stroke="#b060ff" stroke-width="10" stroke-linecap="round" transform="rotate(-90 60 60)"/>
+              </svg>
+              <div class="gauge-c"><b class="violet" data-count="58" data-suffix="%">0%</b><span>RAM</span></div>
+            </div>
+          </div>
+          <div class="heatmap">
+            <!-- Filled in by JS with abstract activity cells -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= DOWNLOAD ============================= -->
+    <section class="download" id="download">
+      <div class="section-head reveal">
+        <span class="kicker">Get HIVE</span>
+        <h2>Download for macOS</h2>
+        <p><span class="ver-pill">v1.0.0</span> · Universal support for Apple Silicon &amp; Intel Macs</p>
+      </div>
+
+      <div class="dl-row reveal">
+        <a class="dl-card" href="https://github.com/LunaHook/hive/releases/download/v1.0.0/HIVE-1.0.0-arm64.dmg">
+          <span class="dl-badge">Recommended</span>
+          <svg class="dl-apple" viewBox="0 0 24 24" width="30" height="30" aria-hidden="true"><path fill="currentColor" d="M16.4 12.9c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9s-1.8-.8-3-.8c-1.5 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.3.8 1.1 1.7 2.4 2.9 2.3 1.2-.1 1.6-.8 3-.8s1.8.8 3 .7c1.2 0 2-1.1 2.8-2.3.9-1.3 1.2-2.6 1.3-2.6-.1 0-2.4-1-2.4-3.6zM14.3 6.2c.6-.8 1-1.9.9-3-.9 0-2 .6-2.7 1.4-.6.7-1.1 1.8-.9 2.9 1 .1 2-.5 2.7-1.3z"/></svg>
+          <span class="dl-title">Apple Silicon</span>
+          <span class="dl-sub">M1 · M2 · M3 · M4</span>
+          <span class="dl-file">HIVE-1.0.0-arm64.dmg</span>
+          <span class="dl-go">Download <span aria-hidden="true">→</span></span>
+        </a>
+
+        <a class="dl-card" href="https://github.com/LunaHook/hive/releases/download/v1.0.0/HIVE-1.0.0.dmg">
+          <svg class="dl-apple" viewBox="0 0 24 24" width="30" height="30" aria-hidden="true"><path fill="currentColor" d="M16.4 12.9c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9s-1.8-.8-3-.8c-1.5 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.3.8 1.1 1.7 2.4 2.9 2.3 1.2-.1 1.6-.8 3-.8s1.8.8 3 .7c1.2 0 2-1.1 2.8-2.3.9-1.3 1.2-2.6 1.3-2.6-.1 0-2.4-1-2.4-3.6zM14.3 6.2c.6-.8 1-1.9.9-3-.9 0-2 .6-2.7 1.4-.6.7-1.1 1.8-.9 2.9 1 .1 2-.5 2.7-1.3z"/></svg>
+          <span class="dl-title">Intel</span>
+          <span class="dl-sub">2020 &amp; earlier Intel Macs</span>
+          <span class="dl-file">HIVE-1.0.0.dmg</span>
+          <span class="dl-go">Download <span aria-hidden="true">→</span></span>
+        </a>
+      </div>
+
+      <div class="gatekeeper reveal" role="note">
+        <div class="gk-ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M12 2 3 6v6c0 5 3.8 9.2 9 10 5.2-.8 9-5 9-10V6zm0 5a2 2 0 0 1 2 2c0 .9-.6 1.5-1 1.9v.1h-2v-.1c-.4-.4-1-1-1-1.9a2 2 0 0 1 2-2zm-1 6h2v2h-2z"/></svg>
+        </div>
+        <div class="gk-text">
+          <strong>First launch: right-click → Open (don't double-click).</strong>
+          HIVE isn't code-signed with an Apple Developer certificate yet, so macOS Gatekeeper will
+          block a normal double-click. The first time only, <em>Control-click</em> (or right-click)
+          the app in Finder, choose <em>Open</em>, then confirm. After that it launches normally.
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================= FOOTER ============================= -->
+  <footer class="footer">
+    <div class="foot-brand">
+      <span class="brand-mark small" aria-hidden="true">
+        <svg viewBox="0 0 32 32" width="20" height="20">
+          <path d="M16 2.6 27.6 9.3v13.4L16 29.4 4.4 22.7V9.3z" fill="none" stroke="url(#hexGrad)" stroke-width="1.6"/>
+        </svg>
+      </span>
+      <span>HIVE</span>
+    </div>
+    <p class="foot-tag">A session command center for the OpenCode CLI.</p>
+    <nav class="foot-links" aria-label="Footer">
+      <a href="https://github.com/LunaHook/hive" target="_blank" rel="noopener">App repository</a>
+      <a href="https://github.com/LunaHook/hive/releases/tag/v1.0.0" target="_blank" rel="noopener">Releases</a>
+      <a href="#top">Back to top</a>
+    </nav>
+    <p class="foot-fine">© 2026 HIVE · Built for OpenCode. Not affiliated with the OpenCode project.</p>
+  </footer>
+
+  <script src="main.js" defer></script>
+</body>
+</html>
